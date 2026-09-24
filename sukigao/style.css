@@ -1,0 +1,490 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #fff7fb;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Yu Gothic",
+    YuGothic,
+    sans-serif;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fff7fb 0%,
+      #ffeaf3 100%
+    );
+
+  color: #4a2637;
+}
+
+
+/* =========================
+   共通
+========================= */
+
+.screen {
+  display: none;
+
+  width: 100%;
+  max-width: 600px;
+  min-height: 100vh;
+
+  margin: 0 auto;
+  padding: 24px 14px 40px;
+
+  text-align: center;
+}
+
+.screen.active {
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================
+   スタート
+========================= */
+
+#start-screen {
+  display: none;
+}
+
+#start-screen.active {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#start-screen h1 {
+  margin: 0 0 25px;
+
+  color: #e83e7f;
+
+  font-size: 36px;
+  line-height: 1.25;
+}
+
+#start-screen p {
+  margin: 0;
+
+  color: #75475c;
+
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+#start-button,
+#qualifying-next-button,
+#restart-button {
+  border: 0;
+  border-radius: 999px;
+
+  background: #f04f8a;
+  color: white;
+
+  font-size: 17px;
+  font-weight: bold;
+
+  box-shadow:
+    0 6px 16px rgba(240, 79, 138, 0.25);
+}
+
+#start-button {
+  width: 210px;
+
+  margin-top: 35px;
+  padding: 16px;
+}
+
+#start-button:active,
+#qualifying-next-button:active,
+#restart-button:active {
+  transform: scale(0.97);
+}
+
+
+/* =========================
+   予選
+========================= */
+
+#qualifying-screen h2 {
+  margin: 5px 0 8px;
+
+  color: #e83e7f;
+
+  font-size: 27px;
+}
+
+#qualifying-screen > p {
+  margin: 0 0 18px;
+
+  color: #75475c;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#member-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 8px;
+
+  width: 100%;
+  margin: 0 auto;
+}
+
+.qualifying-card {
+  position: relative;
+
+  min-width: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  border: 3px solid transparent;
+  border-radius: 13px;
+
+  background: white;
+
+  box-shadow:
+    0 3px 10px rgba(120, 50, 80, 0.10);
+}
+
+.qualifying-card.selected {
+  border-color: #ff4f91;
+
+  box-shadow:
+    0 0 0 2px #ffd0e1,
+    0 5px 15px rgba(240, 79, 138, 0.25);
+
+  transform: translateY(-2px);
+}
+
+.qualifying-card.selected::after {
+  content: "♥";
+
+  position: absolute;
+  top: 5px;
+  right: 7px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  background: #f04f8a;
+  color: white;
+
+  font-size: 14px;
+}
+
+.qualifying-card img {
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 3 / 4;
+
+  object-fit: cover;
+}
+
+.qualifying-info {
+  min-height: 55px;
+  padding: 7px 3px 8px;
+
+  background: white;
+}
+
+.qualifying-group {
+  overflow: hidden;
+
+  color: #a06c82;
+
+  font-size: 9px;
+  line-height: 1.2;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.qualifying-name {
+  margin-top: 4px;
+
+  color: #4a2637;
+
+  font-size: 13px;
+  font-weight: bold;
+}
+
+#qualifying-next-button {
+  width: min(260px, 80%);
+
+  margin-top: 22px;
+  padding: 14px;
+}
+
+
+/* =========================
+   決勝
+========================= */
+
+#battle-screen {
+  padding-top: 30px;
+}
+
+#battle-screen h2 {
+  margin: 5px 0 28px;
+
+  color: #e83e7f;
+
+  font-size: 27px;
+}
+
+#battle-area {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    35px
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 5px;
+
+  width: 100%;
+  margin: 0 auto;
+}
+
+.battle-card {
+  min-width: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  border: 3px solid white;
+  border-radius: 17px;
+
+  background: white;
+
+  box-shadow:
+    0 6px 18px rgba(150, 60, 100, 0.16);
+}
+
+.battle-card:active {
+  border-color: #ff78aa;
+
+  transform: scale(0.97);
+}
+
+.battle-card img {
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 3 / 4;
+
+  object-fit: cover;
+}
+
+.member-info {
+  min-height: 72px;
+
+  padding: 9px 4px 11px;
+
+  background: white;
+}
+
+.member-info div:first-child {
+  overflow: hidden;
+
+  color: #a06c82;
+
+  font-size: 10px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.member-info div:last-child {
+  margin-top: 5px;
+
+  color: #4a2637;
+
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.vs {
+  color: #f04f8a;
+
+  font-size: 17px;
+  font-weight: 900;
+}
+
+
+/* =========================
+   結果 TOP9
+========================= */
+
+#result-screen h2 {
+  margin: 5px 0 25px;
+
+  color: #e83e7f;
+
+  font-size: 27px;
+}
+
+#ranking-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 10px;
+
+  width: 100%;
+  margin: 0 auto 30px;
+}
+
+.ranking-item {
+  position: relative;
+
+  display: block;
+
+  min-width: 0;
+  margin: 0;
+  padding: 0 0 10px;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  background: white;
+
+  box-shadow:
+    0 4px 14px rgba(150, 60, 100, 0.13);
+}
+
+.rank-number {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 31px;
+  height: 31px;
+
+  border-radius: 50%;
+
+  background: #f04f8a;
+  color: white;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  box-shadow:
+    0 2px 7px rgba(100, 30, 60, 0.20);
+}
+
+.ranking-item img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+
+  object-fit: cover;
+
+  border-radius: 0;
+}
+
+.ranking-info {
+  padding: 8px 3px 0;
+
+  text-align: center;
+}
+
+.ranking-group {
+  overflow: hidden;
+
+  color: #a06c82;
+
+  font-size: 9px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ranking-name {
+  margin-top: 3px;
+
+  color: #4a2637;
+
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* ○勝は完全に非表示 */
+.ranking-wins {
+  display: none;
+}
+
+#restart-button {
+  width: min(260px, 80%);
+
+  padding: 14px;
+}
+
+
+/* =========================
+   少し大きいスマホ
+========================= */
+
+@media (min-width: 430px) {
+
+  .screen {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #member-grid {
+    gap: 11px;
+  }
+
+  .qualifying-name,
+  .ranking-name {
+    font-size: 14px;
+  }
+
+  .member-info div:last-child {
+    font-size: 18px;
+  }
+}
