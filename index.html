@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ハロプロ好き顔選手権</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- スタート画面 -->
+  <section id="start-screen" class="screen active">
+    <h1>ハロプロ好き顔選手権</h1>
+
+    <p>
+      70人の中から<br>
+      あなたの好きな顔を決めよう！
+    </p>
+
+    <button id="start-button">スタート</button>
+  </section>
+
+
+  <!-- 予選画面 -->
+  <section id="qualifying-screen" class="screen">
+
+    <h2 id="group-title">予選</h2>
+
+    <p>
+      好きな顔を<br>
+      <strong>0〜4人</strong>選んでください
+    </p>
+
+    <div id="member-grid"></div>
+
+    <button id="qualifying-next-button" disabled>
+      決定
+    </button>
+
+  </section>
+
+
+  <!-- 決勝画面 -->
+  <section id="battle-screen" class="screen">
+
+    <h2>好きな顔はどっち？</h2>
+
+    <div id="battle-area">
+
+      <button class="battle-card" id="left-card">
+        <img id="left-image" src="" alt="">
+        <div class="member-info">
+          <div id="left-group"></div>
+          <div id="left-name"></div>
+        </div>
+      </button>
+
+      <div class="vs">VS</div>
+
+      <button class="battle-card" id="right-card">
+        <img id="right-image" src="" alt="">
+        <div class="member-info">
+          <div id="right-group"></div>
+          <div id="right-name"></div>
+        </div>
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- 結果画面 -->
+  <section id="result-screen" class="screen">
+
+    <h2>あなたの好きな顔 TOP9</h2>
+
+    <div id="ranking-list"></div>
+
+    <button id="restart-button">
+      もう一度遊ぶ
+    </button>
+
+  </section>
+
+
+  <script src="members.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
